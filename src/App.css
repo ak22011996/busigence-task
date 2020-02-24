@@ -1,114 +1,129 @@
 .container {
-  display: block;
-  position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-size: 22px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+     display: block;
+     position: relative;
+     padding-left: 35px;
+     margin-bottom: 12px;
+}
+ .container input {
+     position: absolute;
+     opacity: 0;
+     cursor: pointer;
+     height: 0;
+     width: 0;
+}
+ .checkmark {
+     position: absolute;
+     top: 0;
+     left: 0;
+     height: 25px;
+     width: 25px;
+     background-color:brown;
+}
+ .container:hover input ~ .checkmark {
+     background-color: #ccc;
+}
+ .container input:checked ~ .checkmark {
+     background-color: #2196F3;
+}
+ .checkmark:after {
+     content: "";
+     position: absolute;
+     display: none;
+}
+ .container input:checked ~ .checkmark:after {
+     display: block;
+}
+ .container .checkmark:after {
+     left: 9px;
+     top: 5px;
+     width: 5px;
+     height: 10px;
+     border: solid white;
+     border-width: 0 3px 3px 0;
+     -webkit-transform: rotate(45deg);
+     -ms-transform: rotate(45deg);
+     transform: rotate(45deg);
+}
+ .mainDiv{
+     display:flex;
+     flex-direction:row;
+     padding-right:20px;
+     margin:2px;
+}
+ .mainDiv .formatselector{
+     margin:5px;
+}
+ .mainDiv .sourceselector{
+     margin:5px;
+}
+ .formatselector{
+     padding-left:20px;
+     background-color:#f1f1f1;
+     border: 1px solid #ccc;
+     width:20%;
+     height:300px;
+     border-top:20px;
+}
+ .mainDiv .visualclass{
+     margin:5px;
+}
+ .visualclass {
+     border: 1px solid #ccc;
+     background-color: #f1f1f1;
+     width:60%;
+     height:400px;
+	 
+	 text-align:center;
+	 
+}
+ .sourceselector {
+     border: 1px solid #ccc;
+     background-color: #f1f1f1;
+     width:20%;
+     height:300px;
+}
+ .sourceDiv {
+     display:flex;
+     flex-direction:row;
+}
+ .sourceDiv div {
+     height:30px;
+     width:50%;
+     background-color: inherit;
+     border: none;
+     outline: none;
+     cursor: pointer;
+     padding: 14px 16px;
+     transition: 0.3s;
+     font-size: 17px;
+}
+ .sourceDiv div:hover {
+     background-color: #ddd;
+}
+ #reactfiledrop {
+     border: 1px dotted black;
+     width: 70px;
+     height:50px;
+     color: black;
+     padding: 20;
+     margin:5px;
+     display:flex;
+     flex-direction:row;
+}
+#reactfiledrop1{
+	float:right;
+	border: 1px dotted black;
+     width: 70px;
+     height:50px;
+     color: black;
+     padding: 20;
+     margin:5px;
+	 left: 100px;
+     top: 10px;
+     
 }
 
-.container input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
+ #myFile{
+     border: 1px dotted black;
 }
-
-.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 25px;
-  width: 25px;
-  background-color:brown;
-}
-
-/* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
-  background-color: #ccc;
-}
-
-/* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
-  background-color: #2196F3;
-}
-
-.checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-.container input:checked ~ .checkmark:after {
-  display: block;
-}
-
-.container .checkmark:after {
-  left: 9px;
-  top: 5px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-.mainDiv{
-	display:flex; 
-	flex-direction:row;
-	padding-right:20px;
-	margin:2px;
-}
-.mainDiv .formatselector{
-	margin:5px;
-
-}
-.mainDiv .sourceselector{
-	margin:5px;
-}
-.formatselector{
-	padding-left:20px;
-	background-color:#f1f1f1;
-	border: 1px solid #ccc;
-	width:20%;
-	height:300px;
-	border-top:20px;
-}
-
-.sourceselector {
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
-  width:20%;
-  height:300px;
-}
-.mainDiv .visualclass{
-	margin:5px;
-
-}
-.visualclass {
-	
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
-  width:60%;
-  height:400px;
-}
-.sourceselector button {
-  background-color: inherit;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
-  font-size: 17px;
-}
-
-.sourceselector button:hover {
-  background-color: #ddd;
-}
-
+ 

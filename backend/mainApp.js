@@ -24,11 +24,41 @@ const server = http.createServer((req, res) => {
 				con.query(query, [csvData], (error, response) => {
 				  console.log(error || response);
 				});
-			});
+			}); 
 		streamData.pipe(csvStream);
 		res.setHeader('Content-Type', 'application/json');
 		res.end("data Loaded in db");
 		
+	} else if (req.url == '/sqlLoginAuth') {
+		console.log('sqlLoginAuth');
+		var body = '';
+		req.on('data', function (data) {
+			
+			body += data;
+		});
+		req.on('end', function () {
+			console.log("AKS"+body);
+			
+			var sql="show databases";
+			//var sql = "select * from customers";
+			//var sql = "show tables";
+			console.log(sql);
+			con.query(sql, function (err, result) {
+				console.log("No of Record: "+result);
+				res.statusCode = 200;
+				res.setHeader('Content-Type', 'application/json');
+				res.setHeader('Access-Control-Allow-Origin', '*');
+				 if (err){
+					res.end(JSON.stringify({response:'Logged In Failed!'}));
+					
+				}
+				if(result.length>0){
+					res.end(JSON.stringify({response:'success'}));
+				 } else {
+					res.end(JSON.stringify({response:'Username or Password is wrong!'}));
+				 }
+			});
+		});
 	} else if (req.url == '/testmainapp') {
 		res.setHeader('Content-Type', 'application/json');
 		res.end("Hi I am Active.");
